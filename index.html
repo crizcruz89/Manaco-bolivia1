@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MANACO® | Calzados Bolivianos - Volvemos más fuertes para caminar juntos</title>
+    
+    <!-- Google Fonts: Montserrat, Inter & Caveat (para lema manuscrito) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif'],
+                        script: ['Caveat', 'cursive'],
+                    },
+                    colors: {
+                        manaco: {
+                            forest: '#0E4226',
+                            emerald: '#196B3D',
+                            green: '#007A33',
+                            gold: '#F4C300',
+                            red: '#D9251D',
+                            cream: '#F8F7F2',
+                            sand: '#EFECE2',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Franja Superior Tricolor Boliviana */
+        .tricolor-bar {
+            background: linear-gradient(90deg, 
+                #D9251D 0%, #D9251D 33.33%, 
+                #F4C300 33.33%, #F4C300 66.66%, 
+                #007A33 66.66%, #007A33 100%
+            );
+        }
+
+        .hero-cream-pattern {
+            background-color: #F8F7F2;
+            background-image: radial-gradient(rgba(14, 66, 38, 0.06) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .card-hover {
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(14, 66, 38, 0.12), 0 8px 10px -6px rgba(14, 66, 38, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-manaco-cream text-slate-800 antialiased selection:bg-manaco-forest selection:text-white">
+
+    <!-- Franja Superior Tricolor -->
+    <div class="tricolor-bar h-1.5 w-full fixed top-0 left-0 z-50"></div>
+
+    <!-- NAVBAR FIJA Y RESPONSIVA -->
+    <header class="fixed top-1.5 left-0 right-0 bg-[#F8F7F2]/95 backdrop-blur-md border-b border-manaco-forest/15 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                
+                <!-- Logotipo SVG Compacto MANACO® (Basado en 1000396194.jpg) -->
+                <a href="#inicio" class="flex items-center gap-3 group focus:outline-none">
+                    <svg class="w-14 h-11 shrink-0 transition-transform duration-300 group-hover:scale-105" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Isotipo Manaco Calzados Bolivianos">
+                        <!-- Letra M Estilizada Verde Bosque -->
+                        <path d="M36 74 L48 22 H68 L84 44 L118 14 H134 L144 64 L128 66 L120 34 L86 60 L64 36 L55 72 Z" fill="#0E4226"/>
+                        
+                        <!-- Cinta Tricolor Diagonal (Rojo, Amarillo, Verde) -->
+                        <path d="M22 92 Q 66 56, 114 20 Q 74 58, 30 96 Z" fill="#D9251D"/>
+                        <path d="M26 96 Q 70 62, 116 24 Q 78 66, 34 100 Z" fill="#F4C300"/>
+                        <path d="M30 100 Q 74 68, 118 28 Q 82 74, 38 104 Z" fill="#007A33"/>
+                        
+                        <!-- Zapatilla Moderna Verde Bosque -->
+                        <path d="M84 88 C90 76, 96 58, 102 48 C105 44, 110 45, 112 52 C114 58, 118 60, 126 60 C134 60, 142 66, 150 76 C158 84, 168 86, 172 90 C174 93, 168 97, 152 97 C130 97, 106 88, 84 88 Z" fill="#0E4226"/>
+                        <!-- Detalles Cordones y Suela Curva -->
+                        <path d="M126 62 L132 60 M133 67 L139 65 M140 72 L146 70" stroke="#F8F7F2" stroke-width="2.5" stroke-linecap="round"/>
+                        <path d="M80 94 C104 92, 128 102, 154 102 C164 102, 171 100, 174 97" stroke="#0E4226" stroke-width="3.5" stroke-linecap="round"/>
+                    </svg>
+                    <div class="flex flex-col">
+                        <div class="flex items-start">
+                            <span class="font-display font-black text-2xl tracking-tight text-manaco-forest leading-none">MANACO</span>
+                            <span class="text-[10px] font-bold text-manaco-forest ml-0.5 leading-none">®</span>
+                        </div>
+                        <span class="text-[10px] font-bold tracking-[0.22em] text-manaco-forest/80 uppercase mt-1">Calzados Bolivianos</span>
+                    </div>
+                </a>
+
+                <!-- Navegación Desktop -->
+                <nav class="hidden lg:flex items-center space-x-7 text-sm font-semibold text-manaco-forest">
+                    <a href="#inicio" class="hover:text-manaco-red transition-colors">Inicio</a>
+                    <a href="#modelo" class="hover:text-manaco-red transition-colors">Plataforma Creadores</a>
+                    <a href="#catalogo" class="hover:text-manaco-red transition-colors">Catálogo Nacional</a>
+                    <a href="#industrial" class="hover:text-manaco-red transition-colors flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-manaco-red"></span> Licitaciones B2B
+                    </a>
+                    <a href="#cobertura" class="hover:text-manaco-red transition-colors">9 Departamentos</a>
+                    <a href="#postulacion" class="hover:text-manaco-red transition-colors">Únete como Taller</a>
+                </nav>
+
+                <!-- Acciones Derecha: Cotizador/Carrito + Menú Móvil -->
+                <div class="flex items-center gap-3">
+                    <button onclick="toggleCartDrawer()" class="relative inline-flex items-center gap-2 bg-manaco-forest hover:bg-manaco-emerald text-white px-4 py-2.5 rounded-xl text-sm font-semibold transition-all shadow-sm cursor-pointer">
+                        <i data-lucide="shopping-bag" class="w-4 h-4 text-manaco-gold"></i>
+                        <span class="hidden sm:inline">Pedido / Proforma</span>
+                        <span id="cart-badge" class="bg-manaco-gold text-manaco-forest text-xs font-extrabold px-2 py-0.5 rounded-full">0</span>
+                    </button>
+
+                    <!-- Botón Menú Móvil -->
+                    <button onclick="toggleMobileMenu()" class="lg:hidden p-2.5 rounded-xl text-manaco-forest hover:bg-manaco-sand focus:outline-none" aria-label="Abrir menú">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-[#F8F7F2] border-t border-manaco-forest/15 px-4 pt-3 pb-6 space-y-2 shadow-lg">
+            <a href="#inicio" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-manaco-forest hover:bg-manaco-sand">Inicio</a>
+            <a href="#modelo" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-manaco-forest hover:bg-manaco-sand">Plataforma de Creadores</a>
+            <a href="#catalogo" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-manaco-forest hover:bg-manaco-sand">Catálogo Nacional</a>
+            <a href="#industrial" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-manaco-red hover:bg-red-50">Calzado Industrial &amp; Licitaciones</a>
+            <a href="#cobertura" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-semibold text-manaco-forest hover:bg-manaco-sand">Red Nacional (9 Deptos.)</a>
+            <a href="#postulacion" onclick="toggleMobileMenu()" class="block px-3 py-2.5 rounded-lg text-base font-bold text-white bg-manaco-forest">Suma tu Taller / Creador</a>
+        </div>
+    </header>
+
+    <!-- 1. HERO SECTION CON IDENTIDAD COMPLETA MANACO® -->
+    <section id="inicio" class="hero-cream-pattern pt-32 pb-20 lg:pt-36 lg:pb-24 text-manaco-forest relative overflow-hidden border-b border-manaco-forest/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Columna Izquierda: Emblema Completo y Lema Oficial -->
+                <div class="lg:col-span-6 flex flex-col items-center lg:items-start text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-manaco-forest/10 border border-manaco-forest/20 px-4 py-1.5 rounded-full text-xs font-bold tracking-wider text-manaco-forest uppercase mb-6">
+                        <span class="w-2 h-2 rounded-full bg-manaco-green animate-pulse"></span>
+                        Orgullo Industrial y Comercial de Bolivia
+                    </div>
+
+                    <!-- Recreación Vectorial Fiel del Logo Completo (1000396194.jpg) -->
+                    <div class="w-full max-w-md bg-white/80 backdrop-blur-sm border border-manaco-forest/15 rounded-3xl p-6 sm:p-8 shadow-xl mb-6">
+                        <svg class="w-full h-auto" viewBox="0 0 520 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Logotipo Oficial MANACO Calzados Bolivianos - Volvemos más fuertes para caminar juntos">
+                            <!-- Isotipo Superior: M + Tricolor + Zapatilla -->
+                            <g transform="translate(95, 8)">
+                                <!-- M Geométrica -->
+                                <path d="M46 112 L68 22 H104 L132 62 L192 10 H220 L238 96 L208 100 L194 44 L136 90 L98 46 L80 108 Z" fill="#0E4226"/>
+                                <!-- Cinta Tricolor Diagonal -->
+                                <path d="M18 140 Q 98 82, 184 18 Q 112 86, 32 146 Z" fill="#D9251D"/>
+                                <path d="M25 146 Q 105 92, 188 25 Q 118 98, 38 152 Z" fill="#F4C300"/>
+                                <path d="M32 152 Q 112 102, 192 32 Q 124 110, 44 158 Z" fill="#007A33"/>
+                                <!-- Zapatilla Verde Bosque -->
+                                <path d="M132 132 C142 112, 152 82, 162 66 C167 59, 175 61, 179 72 C182 82, 189 85, 202 85 C216 85, 230 95, 244 112 C258 126, 274 129, 280 136 C283 141, 274 147, 248 147 C210 147, 168 132, 132 132 Z" fill="#0E4226"/>
+                                <!-- Cordones -->
+                                <path d="M202 88 L212 84 M214 96 L224 92 M226 104 L236 100" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round"/>
+                                <!-- Suela Curva -->
+                                <path d="M126 142 C166 139, 206 155, 250 155 C267 155, 279 152, 284 147" stroke="#0E4226" stroke-width="5.5" stroke-linecap="round"/>
+                            </g>
+
+                            <!-- Tipografía MANACO® -->
+                            <text x="255" y="218" text-anchor="middle" fill="#0E4226" font-family="Montserrat, sans-serif" font-weight="900" font-size="76" letter-spacing="2">MANACO</text>
+                            <text x="454" y="176" fill="#0E4226" font-family="Montserrat, sans-serif" font-weight="800" font-size="18">®</text>
+
+                            <!-- Subtítulo: — CALZADOS BOLIVIANOS — -->
+                            <line x1="36" y1="242" x2="104" y2="242" stroke="#0E4226" stroke-width="2"/>
+                            <text x="260" y="248" text-anchor="middle" fill="#0E4226" font-family="Montserrat, sans-serif" font-weight="700" font-size="18" letter-spacing="7">CALZADOS BOLIVIANOS</text>
+                            <line x1="416" y1="242" x2="484" y2="242" stroke="#0E4226" stroke-width="2"/>
+
+                            <!-- Lema Manuscrito con Subrayado Dorado -->
+                            <text x="260" y="290" text-anchor="middle" fill="#0E4226" font-family="Caveat, cursive" font-weight="700" font-size="38" transform="rotate(-2 260 290)">Volvemos más fuertes</text>
+                            <path d="M150 296 Q 260 291, 370 293" stroke="#F4C300" stroke-width="3.5" stroke-linecap="round"/>
+                            
+                            <text x="260" y="324" text-anchor="middle" fill="#0E4226" font-family="Caveat, cursive" font-weight="700" font-size="35" transform="rotate(-2 260 324)">para caminar juntos</text>
+                            <path d="M170 330 Q 260 326, 352 327" stroke="#F4C300" stroke-width="3.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                    <!-- 3 Pilares Oficiales de la Marca -->
+                    <div class="w-full max-w-md grid grid-cols-3 divide-x divide-manaco-forest/25 bg-white border border-manaco-forest/15 rounded-2xl py-3.5 px-2 shadow-sm">
+                        <div class="flex flex-col items-center justify-center px-2 text-center">
+                            <i data-lucide="footprints" class="w-6 h-6 text-manaco-forest mb-1.5"></i>
+                            <span class="text-[10px] font-extrabold text-manaco-forest uppercase leading-tight">Calidad en cada paso</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center px-2 text-center">
+                            <div class="w-7 h-4 rounded-sm overflow-hidden shadow-xs mb-1.5 flex flex-col">
+                                <span class="h-1/3 bg-[#D9251D] block"></span>
+                                <span class="h-1/3 bg-[#F4C300] block"></span>
+                                <span class="h-1/3 bg-[#007A33] block"></span>
+                            </div>
+                            <span class="text-[10px] font-extrabold text-manaco-forest uppercase leading-tight">Producción Boliviana</span>
+                        </div>
+                        <div class="flex flex-col items-center justify-center px-2 text-center">
+                            <i data-lucide="users" class="w-6 h-6 text-manaco-forest mb-1.5"></i>
+                            <span class="text-[10px] font-extrabold text-manaco-forest uppercase leading-tight">Trabajando por un mejor mañana</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Propuesta de Valor & Acciones -->
+                <div class="lg:col-span-6 space-y-6">
+                    <h1 class="font-display font-black text-3xl sm:text-5xl text-manaco-forest leading-tight">
+                        Volvemos más fuertes <span class="text-manaco-emerald underline decoration-manaco-gold decoration-4 underline-offset-8">para caminar juntos</span> en toda Bolivia.
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+                        Unimos la tradición de más de ocho décadas de <strong>MANACO®</strong> con el talento de talleres, diseñadores y fabricantes nacionales. Distribuimos calzado boliviano de alta calidad y equipamiento industrial certificado en los <strong>9 departamentos del país</strong>.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row gap-4 pt-2">
+                        <a href="#catalogo" class="inline-flex items-center justify-center gap-2 bg-manaco-forest hover:bg-manaco-emerald text-white font-bold px-7 py-4 rounded-xl shadow-lg shadow-manaco-forest/20 transition-all text-sm sm:text-base">
+                            <span>Explorar Catálogo Boliviano</span>
+                            <i data-lucide="arrow-right" class="w-5 h-5 text-manaco-gold"></i>
+                        </a>
+                        <a href="#postulacion" class="inline-flex items-center justify-center gap-2 bg-white hover:bg-manaco-sand border-2 border-manaco-forest text-manaco-forest font-bold px-7 py-4 rounded-xl transition-all text-sm sm:text-base">
+                            <i data-lucide="handshake" class="w-5 h-5 text-manaco-red"></i>
+                            <span>Suma tu Taller / Creador</span>
+                        </a>
+                    </div>
+
+                    <!-- Estadísticas Clave -->
+                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-6 border-t border-manaco-forest/15">
+                        <div>
+                            <p class="font-display font-black text-2xl sm:text-3xl text-manaco-forest">9 Deptos.</p>
+                            <p class="text-xs text-slate-600 mt-1">Red de distribución nacional</p>
+                        </div>
+                        <div>
+                            <p class="font-display font-black text-2xl sm:text-3xl text-manaco-green">100% Bol.</p>
+                            <p class="text-xs text-slate-600 mt-1">Impulso a creadores locales</p>
+                        </div>
+                        <div>
+                            <p class="font-display font-black text-2xl sm:text-3xl text-manaco-forest">D.S. 4505</p>
+                            <p class="text-xs text-slate-600 mt-1">Preferencia en SICOES</p>
+                        </div>
+                        <div>
+                            <p class="font-display font-black text-2xl sm:text-3xl text-manaco-red">IBNORCA</p>
+                            <p class="text-xs text-slate-600 mt-1">Calidad certificada</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. SECCIÓN NUESTRO MODELO: PLATAFORMA DE CREADORES -->
+    <section id="modelo" class="py-20 bg-white border-b border-manaco-forest/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-manaco-green font-bold text-xs uppercase tracking-widest">Alianza Productiva Nacional</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-manaco-forest mt-2">
+                    Caminando Juntos: Plataforma de Creadores
+                </h2>
+                <p class="text-slate-600 mt-4 text-base sm:text-lg">
+                    Conectamos el talento de los talleres y diseñadores bolivianos con nuestra red comercial para llevar sus colecciones a departamentos donde aún no tienen presencia física.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Paso 1 -->
+                <div class="bg-manaco-cream border border-manaco-forest/15 rounded-2xl p-8 relative card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-manaco-forest text-white font-display font-black text-xl flex items-center justify-center mb-6 shadow-md">
+                        01
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-manaco-forest mb-3">Unión con Talleres Bolivianos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Nos reunimos con creadores independientes, maestros zapateros y talleres especializados en Cochabamba, La Paz, Santa Cruz y todo el país para integrar sus colecciones.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-manaco-forest/10 flex items-center gap-2 text-xs font-bold text-manaco-emerald">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-manaco-green"></i>
+                        <span>Compra directa o consignación curada</span>
+                    </div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="bg-manaco-cream border border-manaco-forest/15 rounded-2xl p-8 relative card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-manaco-gold text-manaco-forest font-display font-black text-xl flex items-center justify-center mb-6 shadow-md">
+                        02
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-manaco-forest mb-3">Calidad en Cada Paso</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Cada par pasa por la curaduría técnica de MANACO® (control de horma, resistencia de materiales, acabado en cuero y certificación IBNORCA en líneas de seguridad).
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-manaco-forest/10 flex items-center gap-2 text-xs font-bold text-manaco-emerald">
+                        <i data-lucide="shield-check" class="w-4 h-4 text-manaco-red"></i>
+                        <span>Sello de garantía MANACO®</span>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="bg-manaco-cream border border-manaco-forest/15 rounded-2xl p-8 relative card-hover">
+                    <div class="w-12 h-12 rounded-2xl bg-manaco-green text-white font-display font-black text-xl flex items-center justify-center mb-6 shadow-md">
+                        03
+                    </div>
+                    <h3 class="font-display font-bold text-xl text-manaco-forest mb-3">Distribución en los 9 Departamentos</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        Llevamos la producción boliviana a cada rincón del país mediante nuestras tiendas, catálogo nacional, ventas corporativas B2B y licitaciones públicas.
+                    </p>
+                    <div class="mt-6 pt-4 border-t border-manaco-forest/10 flex items-center gap-2 text-xs font-bold text-manaco-emerald">
+                        <i data-lucide="truck" class="w-4 h-4 text-manaco-forest"></i>
+                        <span>Expansión nacional sin costos fijos de local</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CATÁLOGO INTERACTIVO CON FILTROS POR CATEGORÍA Y DEPARTAMENTO -->
+    <section id="catalogo" class="py-20 bg-manaco-cream">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
+                <div>
+                    <span class="text-manaco-green font-bold text-xs uppercase tracking-widest">Producción Boliviana</span>
+                    <h2 class="font-display font-black text-3xl sm:text-4xl text-manaco-forest mt-2">
+                        Catálogo Nacional &amp; Creadores
+                    </h2>
+                    <p class="text-slate-600 mt-2 max-w-2xl text-sm sm:text-base">
+                        Explora nuestras colecciones creadas junto a productores de toda Bolivia. Filtra por categoría o por departamento de origen.
+                    </p>
+                </div>
+
+                <!-- Filtro por Departamento de Origen -->
+                <div class="flex items-center gap-3 bg-white px-4 py-2.5 rounded-xl border border-manaco-forest/20 shadow-sm">
+                    <i data-lucide="map-pin" class="w-4 h-4 text-manaco-red shrink-0"></i>
+                    <label for="dept-filter" class="text-xs font-bold text-slate-600 uppercase whitespace-nowrap">Origen Creador:</label>
+                    <select id="dept-filter" onchange="filterCatalog()" class="text-sm font-bold text-manaco-forest bg-transparent focus:outline-none cursor-pointer">
+                        <option value="all">Toda Bolivia (9 Deptos.)</option>
+                        <option value="Cochabamba">Cochabamba</option>
+                        <option value="La Paz">La Paz</option>
+                        <option value="Santa Cruz">Santa Cruz</option>
+                        <option value="Oruro">Oruro</option>
+                        <option value="Chuquisaca">Chuquisaca</option>
+                        <option value="Tarija">Tarija</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Botones de Filtro por Categoría -->
+            <div class="flex flex-wrap gap-2.5 mb-10" id="category-filters">
+                <button onclick="setCategory('all')" data-cat="all" class="cat-btn active bg-manaco-forest text-white px-5 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer shadow-sm">
+                    Todos los Modelos
+                </button>
+                <button onclick="setCategory('creadores')" data-cat="creadores" class="cat-btn bg-white text-manaco-forest hover:bg-manaco-sand border border-manaco-forest/20 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                    Creadores Locales (Urbano/Cuero)
+                </button>
+                <button onclick="setCategory('industrial')" data-cat="industrial" class="cat-btn bg-white text-manaco-forest hover:bg-manaco-sand border border-manaco-forest/20 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                    Seguridad Industrial (Licitaciones)
+                </button>
+                <button onclick="setCategory('escolar')" data-cat="escolar" class="cat-btn bg-white text-manaco-forest hover:bg-manaco-sand border border-manaco-forest/20 px-5 py-2.5 rounded-xl text-sm font-semibold transition-all cursor-pointer">
+                    Escolar &amp; Tradicional
+                </button>
+            </div>
+
+            <!-- Grid de Productos -->
+            <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Renderizado dinámicamente vía JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN ESPECIAL B2B: CALZADO INDUSTRIAL & LICITACIONES (SICOES) -->
+    <section id="industrial" class="py-20 bg-manaco-forest text-white relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-manaco-emerald/30 skew-x-12 transform origin-top-right pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Información Técnica B2B -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="inline-flex items-center gap-2 bg-manaco-gold/20 border border-manaco-gold/40 text-manaco-gold px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider">
+                        División Institucional &amp; Licitaciones B2B
+                    </div>
+
+                    <h2 class="font-display font-black text-3xl sm:text-4xl leading-tight">
+                        Calzado Industrial &amp; Licitaciones Públicas (SICOES)
+                    </h2>
+
+                    <p class="text-slate-200 text-base leading-relaxed">
+                        Equipamos a la minería, hidrocarburos, sector eléctrico, construcción, municipios, Fuerzas Armadas y Policía Boliviana. Nuestra producción nacional accede a los márgenes de preferencia del <strong class="text-manaco-gold">Decreto Supremo 4505 ("Compro Hecho en Bolivia")</strong>.
+                    </p>
+
+                    <!-- Especificaciones Técnicas -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                        <div class="bg-white/10 border border-white/15 rounded-xl p-4">
+                            <div class="flex items-center gap-2.5 text-manaco-gold font-bold text-sm mb-1">
+                                <i data-lucide="zap" class="w-4 h-4"></i>
+                                <span>Aislamiento Dieléctrico</span>
+                            </div>
+                            <p class="text-xs text-slate-200">Resistencia certificada de 14 kV a 18 kV en seco, libre de componentes metálicos expuestos.</p>
+                        </div>
+
+                        <div class="bg-white/10 border border-white/15 rounded-xl p-4">
+                            <div class="flex items-center gap-2.5 text-emerald-300 font-bold text-sm mb-1">
+                                <i data-lucide="shield" class="w-4 h-4"></i>
+                                <span>Normas IBNORCA / ASTM</span>
+                            </div>
+                            <p class="text-xs text-slate-200">Puntera de acero o composite (200 Joules) bajo estándar ASTM F2413 y NB 351001.</p>
+                        </div>
+
+                        <div class="bg-white/10 border border-white/15 rounded-xl p-4">
+                            <div class="flex items-center gap-2.5 text-amber-200 font-bold text-sm mb-1">
+                                <i data-lucide="droplets" class="w-4 h-4"></i>
+                                <span>Suelas NBR / Bidensidad</span>
+                            </div>
+                            <p class="text-xs text-slate-200">Caucho nitrilo resistente a hidrocarburos, aceites, abrasión extrema y baja temperatura.</p>
+                        </div>
+
+                        <div class="bg-white/10 border border-white/15 rounded-xl p-4">
+                            <div class="flex items-center gap-2.5 text-red-300 font-bold text-sm mb-1">
+                                <i data-lucide="file-check-2" class="w-4 h-4"></i>
+                                <span>Respaldo Documental DBC</span>
+                            </div>
+                            <p class="text-xs text-slate-200">Ficha técnica, certificación de origen nacional, garantías de seriedad y entrega en los 9 deptos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Simulador / Cotizador Rápido de Licitación B2B -->
+                <div class="lg:col-span-6">
+                    <div class="bg-manaco-cream text-slate-800 rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20">
+                        <div class="flex items-center justify-between border-b border-manaco-forest/15 pb-4 mb-6">
+                            <div>
+                                <h3 class="font-display font-extrabold text-xl text-manaco-forest">Cotizador Rápido B2B / Licitación</h3>
+                                <p class="text-xs text-slate-600 mt-0.5">Calcula precios referenciales por volumen y solicita tu proforma oficial</p>
+                            </div>
+                            <span class="bg-manaco-forest text-manaco-gold text-xs font-extrabold px-3 py-1 rounded-lg">D.S. 4505</span>
+                        </div>
+
+                        <form id="b2b-quote-form" onsubmit="handleB2BQuote(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-manaco-forest uppercase mb-1">Modelo Técnico</label>
+                                    <select id="b2b-model" onchange="calculateB2BEstimate()" class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                        <option value="480" data-name="Botín Dieléctrico 18kV Composite">Botín Dieléctrico 18kV Composite (Bs 480)</option>
+                                        <option value="430" data-name="Botín Minero Cuero Nobuck + Acero">Botín Minero Cuero Nobuck + Acero (Bs 430)</option>
+                                        <option value="520" data-name="Bota Petrolera Caña Alta NBR">Bota Petrolera Caña Alta NBR (Bs 520)</option>
+                                        <option value="165" data-name="Bota de Goma/PVC Industrial Reforzada">Bota de Goma/PVC Industrial (Bs 165)</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label class="block text-xs font-bold text-manaco-forest uppercase mb-1">Cantidad de Pares</label>
+                                    <input type="number" id="b2b-qty" min="20" value="100" oninput="calculateB2BEstimate()" required class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-semibold focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-manaco-forest uppercase mb-1">Empresa o Entidad</label>
+                                    <input type="text" id="b2b-company" placeholder="Ej. Minera / Constructora / GAM..." required class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-manaco-forest uppercase mb-1">Departamento de Entrega</label>
+                                    <select id="b2b-dept" class="w-full bg-white border border-slate-300 rounded-xl px-3.5 py-2.5 text-sm font-medium focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                        <option value="La Paz">La Paz</option>
+                                        <option value="Santa Cruz">Santa Cruz</option>
+                                        <option value="Cochabamba">Cochabamba</option>
+                                        <option value="Oruro">Oruro</option>
+                                        <option value="Potosí">Potosí</option>
+                                        <option value="Tarija">Tarija</option>
+                                        <option value="Chuquisaca">Chuquisaca</option>
+                                        <option value="Beni">Beni</option>
+                                        <option value="Pando">Pando</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Resumen de Cálculo en Vivo -->
+                            <div class="bg-white border border-manaco-forest/15 rounded-2xl p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                <div>
+                                    <span class="text-xs font-semibold text-slate-600 block">Descuento por volumen: <strong id="b2b-discount-label" class="text-manaco-green">8% (100+ pares)</strong></span>
+                                    <span class="text-xs text-slate-500">Incluye facturación legal y ficha técnica IBNORCA</span>
+                                </div>
+                                <div class="text-left sm:text-right">
+                                    <span class="text-xs text-slate-500 block">Total Referencial:</span>
+                                    <span id="b2b-total-display" class="font-display font-black text-2xl text-manaco-forest">Bs 44,160</span>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="w-full bg-manaco-forest hover:bg-manaco-emerald text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="file-spreadsheet" class="w-5 h-5 text-manaco-gold"></i>
+                                <span>Solicitar Proforma Oficial &amp; DBC</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. COBERTURA INTERACTIVA POR DEPARTAMENTOS DE BOLIVIA -->
+    <section id="cobertura" class="py-20 bg-white border-b border-manaco-forest/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-manaco-green font-bold text-xs uppercase tracking-widest">Trabajando por un mejor mañana</span>
+                <h2 class="font-display font-black text-3xl sm:text-4xl text-manaco-forest mt-2">
+                    Red Nacional de Distribución (9 Departamentos)
+                </h2>
+                <p class="text-slate-600 mt-3 text-base">
+                    Selecciona un departamento para explorar cómo integramos la producción de creadores locales con nuestros puntos de venta y distribución en todo el país.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                <!-- Selector de los 9 Departamentos -->
+                <div class="lg:col-span-6 grid grid-cols-3 gap-3" id="dept-buttons-grid">
+                    <!-- Botones generados por JS -->
+                </div>
+
+                <!-- Panel Informativo del Departamento Seleccionado -->
+                <div class="lg:col-span-6">
+                    <div id="dept-detail-card" class="bg-manaco-cream border-2 border-manaco-forest/20 rounded-3xl p-6 sm:p-8 shadow-lg">
+                        <!-- Contenido actualizado dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. FORMULARIO DE POSTULACIÓN PARA CREADORES Y TALLERES -->
+    <section id="postulacion" class="py-20 bg-manaco-cream">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-3xl shadow-xl border border-manaco-forest/15 overflow-hidden">
+                <div class="tricolor-bar h-2 w-full"></div>
+                <div class="p-6 sm:p-10 lg:p-12">
+                    <div class="max-w-2xl mb-8">
+                        <span class="text-manaco-green font-bold text-xs uppercase tracking-widest">Alianzas B2B para Productores Bolivianos</span>
+                        <h2 class="font-display font-black text-2xl sm:text-4xl text-manaco-forest mt-2">
+                            Caminemos Juntos: Suma tu Taller a MANACO®
+                        </h2>
+                        <p class="text-slate-600 mt-3 text-sm sm:text-base">
+                            ¿Fabrican calzado de cuero, casual, deportivo o industrial en Bolivia y buscan llegar a los 9 departamentos sin asumir el costo fijo de abrir tiendas? Postula tu marca o taller aquí.
+                        </p>
+                    </div>
+
+                    <form id="creator-form" onsubmit="handleCreatorSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Nombre de la Marca o Taller *</label>
+                                <input type="text" id="creator-brand" required placeholder="Ej. Calzados Illimani / Estudio Valle" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Departamento de Origen *</label>
+                                <select id="creator-city" required class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                    <option value="Cochabamba">Cochabamba</option>
+                                    <option value="La Paz">La Paz / El Alto</option>
+                                    <option value="Santa Cruz">Santa Cruz</option>
+                                    <option value="Oruro">Oruro</option>
+                                    <option value="Potosí">Potosí</option>
+                                    <option value="Chuquisaca">Chuquisaca</option>
+                                    <option value="Tarija">Tarija</option>
+                                    <option value="Beni">Beni</option>
+                                    <option value="Pando">Pando</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Especialidad Principal *</label>
+                                <select id="creator-specialty" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                    <option value="Cuero Casual / Vestir">Cuero Casual / Vestir</option>
+                                    <option value="Urbano / Sneakers">Urbano / Sneakers</option>
+                                    <option value="Calzado Industrial / Seguridad">Industrial / Seguridad</option>
+                                    <option value="Escolar / Infantil">Escolar / Infantil</option>
+                                    <option value="Dama / Moda">Dama / Moda</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Capacidad Mensual (Pares) *</label>
+                                <input type="number" id="creator-capacity" min="50" required placeholder="Ej. 500" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Modalidad Preferida *</label>
+                                <select id="creator-modality" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm font-medium focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                                    <option value="Compra Mayorista Directa">Compra Mayorista Directa</option>
+                                    <option value="Consignación Curada en Tiendas">Consignación Curada en Tiendas</option>
+                                    <option value="Maquila bajo Marca Manaco">Maquila bajo Marca Manaco</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Persona de Contacto *</label>
+                                <input type="text" id="creator-contact" required placeholder="Nombre completo del representante" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold text-manaco-forest uppercase mb-1.5">Teléfono / WhatsApp *</label>
+                                <input type="tel" id="creator-phone" required placeholder="Ej. 70712345" class="w-full border border-slate-300 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-manaco-forest focus:outline-none">
+                            </div>
+                        </div>
+
+                        <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <p class="text-xs text-slate-500">
+                                Nuestro comité de curaduría evaluará tus muestras bajo los estándares de calidad MANACO®.
+                            </p>
+                            <button type="submit" class="bg-manaco-forest hover:bg-manaco-emerald text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all inline-flex items-center justify-center gap-2 cursor-pointer shrink-0">
+                                <i data-lucide="send" class="w-4 h-4 text-manaco-gold"></i>
+                                <span>Enviar Postulación</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER CORPORATIVO -->
+    <footer class="bg-manaco-forest text-slate-200 pt-16 pb-10 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/15">
+                
+                <!-- Marca y Lema -->
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <svg class="w-12 h-9 shrink-0" viewBox="0 0 180 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M36 74 L48 22 H68 L84 44 L118 14 H134 L144 64 L128 66 L120 34 L86 60 L64 36 L55 72 Z" fill="#FFFFFF"/>
+                            <path d="M22 92 Q 66 56, 114 20 Q 74 58, 30 96 Z" fill="#D9251D"/>
+                            <path d="M26 96 Q 70 62, 116 24 Q 78 66, 34 100 Z" fill="#F4C300"/>
+                            <path d="M30 100 Q 74 68, 118 28 Q 82 74, 38 104 Z" fill="#007A33"/>
+                            <path d="M84 88 C90 76, 96 58, 102 48 C105 44, 110 45, 112 52 C114 58, 118 60, 126 60 C134 60, 142 66, 150 76 C158 84, 168 86, 172 90 C174 93, 168 97, 152 97 C130 97, 106 88, 84 88 Z" fill="#FFFFFF"/>
+                        </svg>
+                        <div>
+                            <span class="font-display font-black text-xl text-white tracking-tight block leading-none">MANACO®</span>
+                            <span class="text-[10px] font-bold text-manaco-gold uppercase tracking-widest">Calzados Bolivianos</span>
+                        </div>
+                    </div>
+                    <p class="font-script text-2xl text-manaco-gold leading-tight">
+                        "Volvemos más fuertes para caminar juntos"
+                    </p>
+                    <p class="text-xs text-slate-300 leading-relaxed">
+                        Calidad en cada paso • Producción Boliviana • Trabajando por un mejor mañana.
+                    </p>
+                </div>
+
+                <!-- Enlaces Rápidos -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Navegación</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li><a href="#inicio" class="hover:text-manaco-gold transition-colors">Inicio</a></li>
+                        <li><a href="#modelo" class="hover:text-manaco-gold transition-colors">Plataforma de Creadores</a></li>
+                        <li><a href="#catalogo" class="hover:text-manaco-gold transition-colors">Catálogo Boliviano</a></li>
+                        <li><a href="#industrial" class="hover:text-manaco-gold transition-colors">Calzado Industrial &amp; SICOES</a></li>
+                        <li><a href="#cobertura" class="hover:text-manaco-gold transition-colors">Cobertura 9 Departamentos</a></li>
+                    </ul>
+                </div>
+
+                <!-- Líneas de Negocio -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Pilares Comerciales</h4>
+                    <ul class="space-y-2.5 text-sm">
+                        <li>Creadores &amp; Diseño Boliviano</li>
+                        <li>Línea Industrial Dieléctrica y Minera</li>
+                        <li>Calzado Escolar 100% Cuero</li>
+                        <li>Distribución Interdepartamental B2B</li>
+                        <li>Licitaciones Estatales (D.S. 4505)</li>
+                    </ul>
+                </div>
+
+                <!-- Contacto Corporativo -->
+                <div>
+                    <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider mb-4">Contacto Central</h4>
+                    <ul class="space-y-3 text-sm">
+                        <li class="flex items-start gap-2.5">
+                            <i data-lucide="map-pin" class="w-4 h-4 text-manaco-gold shrink-0 mt-1"></i>
+                            <span>Hub Logístico Central: Cochabamba • Eje Troncal La Paz - Santa Cruz</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="phone" class="w-4 h-4 text-manaco-gold shrink-0"></i>
+                            <span>+591 (4) 426-0000 • Línea B2B</span>
+                        </li>
+                        <li class="flex items-center gap-2.5">
+                            <i data-lucide="mail" class="w-4 h-4 text-manaco-gold shrink-0"></i>
+                            <span>creadores@manaco.com.bo</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300">
+                <p>&copy; 2026 MANACO® Calzados Bolivianos. Todos los derechos reservados.</p>
+                <div class="flex items-center gap-4">
+                    <span>Certificación IBNORCA</span>
+                    <span>•</span>
+                    <span>Registro SICOES / RUPE</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DRAWER / MODAL DE CARRITO & COTIZADOR INSTITUCIONAL -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 hidden">
+        <!-- Backdrop -->
+        <div onclick="toggleCartDrawer()" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"></div>
+        
+        <!-- Panel Lateral -->
+        <div class="fixed inset-y-0 right-0 max-w-md w-full bg-white shadow-2xl flex flex-col z-10">
+            <div class="tricolor-bar h-1.5 w-full"></div>
+            <div class="p-6 border-b border-slate-200 flex items-center justify-between">
+                <div>
+                    <h3 class="font-display font-extrabold text-lg text-manaco-forest">Pedido &amp; Proforma B2B</h3>
+                    <p class="text-xs text-slate-500">Compra directa o solicitud de cotización nacional</p>
+                </div>
+                <button onclick="toggleCartDrawer()" class="p-2 rounded-xl hover:bg-slate-100 text-slate-600 cursor-pointer">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+            </div>
+
+            <!-- Lista de Ítems -->
+            <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                <!-- Renderizado dinámicamente -->
+            </div>
+
+            <!-- Footer del Carrito -->
+            <div class="p-6 border-t border-slate-200 bg-manaco-cream space-y-4">
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-semibold text-slate-600">Subtotal Estimado:</span>
+                    <span id="cart-subtotal" class="font-display font-black text-2xl text-manaco-forest">Bs 0</span>
+                </div>
+                <div class="grid grid-cols-1 gap-2.5">
+                    <button onclick="checkoutOrder('directo')" class="w-full bg-manaco-forest hover:bg-manaco-emerald text-white font-bold py-3.5 rounded-xl transition-all text-sm cursor-pointer">
+                        Confirmar Pedido con Envío Nacional
+                    </button>
+                    <button onclick="checkoutOrder('proforma')" class="w-full bg-white hover:bg-manaco-sand text-manaco-forest border border-manaco-forest/30 font-bold py-3 rounded-xl transition-all text-sm cursor-pointer">
+                        Solicitar Proforma Institucional
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST / MODAL DE NOTIFICACIÓN -->
+    <div id="toast-notification" class="fixed bottom-6 right-6 z-50 hidden max-w-sm w-full bg-manaco-forest text-white p-4 rounded-2xl shadow-2xl border border-manaco-gold/30 transform transition-all">
+        <div class="flex items-start gap-3">
+            <div class="p-2 bg-manaco-gold/20 text-manaco-gold rounded-xl shrink-0">
+                <i data-lucide="check-circle" class="w-5 h-5"></i>
+            </div>
+            <div class="flex-1">
+                <h4 id="toast-title" class="font-bold text-sm text-white">Acción completada</h4>
+                <p id="toast-message" class="text-xs text-slate-200 mt-1 leading-relaxed"></p>
+            </div>
+            <button onclick="hideToast()" class="text-slate-300 hover:text-white cursor-pointer">
+                <i data-lucide="x" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- LÓGICA JAVASCRIPT -->
+    <script>
+        // ==========================================
+        // 1. BASE DE DATOS DE PRODUCTOS Y CREADORES
+        // ==========================================
+        const products = [
+            {
+                id: 1,
+                name: "Botín Urbano Illimani Cuero",
+                creator: "Taller Illimani",
+                department: "La Paz",
+                category: "creadores",
+                price: 340,
+                sizes: "38 - 44",
+                badge: "Creador Paceño",
+                specs: "Cuero plena flor engrasado, planta TR antideslizante.",
+                image: "https://placehold.co/600x420/0E4226/FFFFFF?text=Bot%C3%ADn+Illimani+Cuero"
+            },
+            {
+                id: 2,
+                name: "Botín Dieléctrico 18kV Pro",
+                creator: "Manaco Industrial",
+                department: "Cochabamba",
+                category: "industrial",
+                price: 480,
+                sizes: "37 - 45",
+                badge: "IBNORCA / ASTM",
+                specs: "Puntera Composite 200J, suela NBR resistente a hidrocarburos.",
+                image: "https://placehold.co/600x420/D9251D/FFFFFF?text=Diel%C3%A9ctrico+18kV+Pro"
+            },
+            {
+                id: 3,
+                name: "Sneaker Cuero Blanco 'Urubó'",
+                creator: "Diseño Cambá Studio",
+                department: "Santa Cruz",
+                category: "creadores",
+                price: 310,
+                sizes: "35 - 43",
+                badge: "Edición Cruceña",
+                specs: "Cuero napa transpirable, plantilla anatómica ultraligera.",
+                image: "https://placehold.co/600x420/196B3D/FFFFFF?text=Sneaker+Urub%C3%B3+Cuero"
+            },
+            {
+                id: 4,
+                name: "Zapato Escolar Clásico 100% Cuero",
+                creator: "Artesanos del Valle",
+                department: "Cochabamba",
+                category: "escolar",
+                price: 210,
+                sizes: "27 - 41",
+                badge: "Alta Durabilidad",
+                specs: "Cuero vacuno reforzado, suela cosida de alta resistencia.",
+                image: "https://placehold.co/600x420/0E4226/F4C300?text=Escolar+Cuero+Cl%C3%A1sico"
+            },
+            {
+                id: 5,
+                name: "Botín Minero Alta Montaña",
+                creator: "Manaco Industrial",
+                department: "Oruro",
+                category: "industrial",
+                price: 450,
+                sizes: "38 - 45",
+                badge: "Licitación SICOES",
+                specs: "Cuero hidrofugado, puntera de acero y plantilla antiperforación.",
+                image: "https://placehold.co/600x420/7F1D1D/FFFFFF?text=Bot%C3%ADn+Minero+Oruro"
+            },
+            {
+                id: 6,
+                name: "Mocasín Ejecutivo Charcas",
+                creator: "Calzados Sucre Tradición",
+                department: "Chuquisaca",
+                category: "creadores",
+                price: 360,
+                sizes: "39 - 44",
+                badge: "Hecho a Mano",
+                specs: "Acabado artesanal en cuero box calf con forro badana natural.",
+                image: "https://placehold.co/600x420/0E4226/FFFFFF?text=Mocas%C3%ADn+Charcas"
+            },
+            {
+                id: 7,
+                name: "Bota Petrolera Caña Alta",
+                creator: "Manaco Industrial",
+                department: "Tarija",
+                category: "industrial",
+                price: 520,
+                sizes: "38 - 45",
+                badge: "D.S. 4505",
+                specs: "Certificación para hidrocarburos, suela bidensidad antiestática.",
+                image: "https://placehold.co/600x420/007A33/FFFFFF?text=Bota+Petrolera+Tarija"
+            },
+            {
+                id: 8,
+                name: "Colegial Infantil Velcro Cuero",
+                creator: "Talleres Tunari",
+                department: "Cochabamba",
+                category: "escolar",
+                price: 195,
+                sizes: "24 - 34",
+                badge: "Línea Infantil",
+                specs: "Cierre práctico, puntera reforzada contra raspaduras.",
+                image: "https://placehold.co/600x420/196B3D/F4C300?text=Escolar+Infantil+Velcro"
+            }
+        ];
+
+        // ==========================================
+        // 2. DATOS DE COBERTURA POR DEPARTAMENTO
+        // ==========================================
+        const departmentsData = {
+            "Cochabamba": {
+                role: "Hub Central de Curaduría y Acopio",
+                stores: "14 Puntos de Venta & Centro Logístico",
+                creators: "42 Talleres y Creadores Asociados",
+                focus: "Calzado escolar de cuero, casual urbano y ensamblaje industrial.",
+                highlight: "Centro neurálgico desde donde se consolida la mercadería hacia oriente y occidente."
+            },
+            "La Paz": {
+                role: "Polo de Diseño Urbano y Manufactura en Cuero",
+                stores: "18 Puntos de Venta (La Paz y El Alto)",
+                creators: "38 Talleres y Diseñadores Asociados",
+                focus: "Botines urbanos, calzado de vestir, táctico policial y minero.",
+                highlight: "Alianza estratégica con productores de El Alto y Sopocachi para distribución nacional."
+            },
+            "Santa Cruz": {
+                role: "Mayor Mercado de Consumo y Moda Casual",
+                stores: "20 Puntos de Venta y Distribución",
+                creators: "25 Marcas de Diseño y Calzado Ligero",
+                focus: "Sneakers de cuero, sandalias, calzado ligero y dotación agroindustrial.",
+                highlight: "Puerta de entrada para que creadores del occidente vendan masivamente en el oriente."
+            },
+            "Oruro": {
+                role: "Centro Estratégico Minero y Comercial",
+                stores: "6 Puntos de Venta y Atención B2B",
+                creators: "12 Talleres Especializados",
+                focus: "Botines de seguridad minera, botas de goma/PVC y calzado térmico.",
+                highlight: "Atención directa a cooperativas mineras y empresas metalúrgicas."
+            },
+            "Potosí": {
+                role: "Demanda Institucional y Minería Pesada",
+                stores: "5 Puntos de Venta (Potosí, Uyuni, Tupiza)",
+                creators: "8 Talleres Locales",
+                focus: "Calzado industrial certificado IBNORCA y línea escolar.",
+                highlight: "Cobertura garantizada para licitaciones municipales y operaciones mineras."
+            },
+            "Chuquisaca": {
+                role: "Tradición Artesanal y Cuero Fino",
+                stores: "5 Puntos de Venta en Sucre",
+                creators: "15 Maestros Zapateros Asociados",
+                focus: "Calzado formal de cuero fino y colecciones ejecutivas.",
+                highlight: "Llevamos la marroquinería y zapatería chuquisaqueña a vitrinas de Santa Cruz y La Paz."
+            },
+            "Tarija": {
+                role: "Hub Hidrocarburífero y Vitivinícola",
+                stores: "6 Puntos de Venta (Tarija y Yacuiba)",
+                creators: "9 Talleres Asociados",
+                focus: "Botas petroleras, calzado casual y línea escolar.",
+                highlight: "Distribución ágil de creadores de todo el país en el sur boliviano."
+            },
+            "Beni": {
+                role: "Expansión Comercial Amazónica",
+                stores: "5 Puntos de Venta (Trinidad y Riberalta)",
+                creators: "Recepción de 100% Catálogo Nacional",
+                focus: "Calzado ligero, escolar, agroindustrial y botas impermeables.",
+                highlight: "Permite a creadores de los valles y altiplano vender sin abrir sucursales propias."
+            },
+            "Pando": {
+                role: "Frontera Norte con Abastecimiento Garantizado",
+                stores: "3 Puntos de Venta en Cobija",
+                creators: "Recepción de 100% Catálogo Nacional",
+                focus: "Calzado casual, escolar y dotación institucional.",
+                highlight: "Logística consolidada desde Cochabamba y La Paz con precios competitivos."
+            }
+        };
+
+        // ==========================================
+        // 3. ESTADO DE LA APLICACIÓN
+        // ==========================================
+        let currentCategory = 'all';
+        let cart = [];
+        let selectedDept = 'Cochabamba';
+
+        // ==========================================
+        // 4. FUNCIONES DE RENDERIZADO DEL CATÁLOGO
+        // ==========================================
+        function renderCatalog(items) {
+            const grid = document.getElementById('catalog-grid');
+            if (items.length === 0) {
+                grid.innerHTML = `
+                    <div class="col-span-full text-center py-12 bg-white rounded-2xl border border-manaco-forest/15">
+                        <p class="text-slate-500 font-semibold">No se encontraron modelos con los filtros seleccionados.</p>
+                        <button onclick="resetFilters()" class="mt-3 text-sm font-bold text-manaco-green hover:underline cursor-pointer">Restablecer filtros</button>
+                    </div>
+                `;
+                return;
+            }
+
+            grid.innerHTML = items.map(product => `
+                <div class="bg-white rounded-2xl border border-manaco-forest/15 overflow-hidden flex flex-col card-hover">
+                    <div class="relative h-48 bg-manaco-sand overflow-hidden">
+                        <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/600x420/0E4226/FFFFFF?text=MANACO+Bolivia'">
+                        <span class="absolute top-3 left-3 bg-manaco-forest/95 backdrop-blur-sm text-manaco-gold text-[11px] font-bold px-2.5 py-1 rounded-lg">
+                            ${product.badge}
+                        </span>
+                        <span class="absolute bottom-3 right-3 bg-white/95 text-manaco-forest text-[11px] font-bold px-2.5 py-1 rounded-lg shadow-sm flex items-center gap-1">
+                            <i data-lucide="map-pin" class="w-3 h-3 text-manaco-red"></i> ${product.department}
+                        </span>
+                    </div>
+
+                    <div class="p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-xs font-bold text-manaco-green uppercase tracking-wide">${product.creator}</p>
+                            <h3 class="font-display font-bold text-base text-manaco-forest mt-1 leading-snug">${product.name}</h3>
+                            <p class="text-xs text-slate-500 mt-2 line-clamp-2">${product.specs}</p>
+                        </div>
+
+                        <div class="mt-4 pt-4 border-t border-slate-100">
+                            <div class="flex items-center justify-between mb-3">
+                                <div>
+                                    <span class="text-[11px] text-slate-400 block">Precio Unitario</span>
+                                    <span class="font-display font-black text-xl text-manaco-forest">Bs ${product.price}</span>
+                                </div>
+                                <span class="text-xs font-semibold bg-manaco-cream text-manaco-forest px-2.5 py-1 rounded-lg border border-manaco-forest/10">
+                                    Tallas: ${product.sizes}
+                                </span>
+                            </div>
+
+                            <button onclick="addToCart(${product.id})" class="w-full bg-manaco-forest hover:bg-manaco-emerald text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors flex items-center justify-center gap-2 cursor-pointer">
+                                <i data-lucide="plus-circle" class="w-4 h-4 text-manaco-gold"></i>
+                                <span>Agregar al Pedido / Proforma</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        function setCategory(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.cat-btn').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.classList.remove('bg-white', 'text-manaco-forest', 'border', 'border-manaco-forest/20');
+                    btn.classList.add('bg-manaco-forest', 'text-white', 'shadow-sm');
+                } else {
+                    btn.classList.add('bg-white', 'text-manaco-forest', 'border', 'border-manaco-forest/20');
+                    btn.classList.remove('bg-manaco-forest', 'text-white', 'shadow-sm');
+                }
+            });
+            filterCatalog();
+        }
+
+        function filterCatalog() {
+            const dept = document.getElementById('dept-filter').value;
+            const filtered = products.filter(p => {
+                const matchCat = currentCategory === 'all' || p.category === currentCategory;
+                const matchDept = dept === 'all' || p.department === dept;
+                return matchCat && matchDept;
+            });
+            renderCatalog(filtered);
+        }
+
+        function resetFilters() {
+            document.getElementById('dept-filter').value = 'all';
+            setCategory('all');
+        }
+
+        // ==========================================
+        // 5. RED NACIONAL INTERACTIVA (9 DEPTOS)
+        // ==========================================
+        function renderDeptButtons() {
+            const container = document.getElementById('dept-buttons-grid');
+            const depts = Object.keys(departmentsData);
+
+            container.innerHTML = depts.map(dept => {
+                const isActive = dept === selectedDept;
+                return `
+                    <button onclick="selectDepartment('${dept}')" class="p-3.5 rounded-2xl border text-left transition-all cursor-pointer ${
+                        isActive 
+                        ? 'bg-manaco-forest text-white border-manaco-forest shadow-md scale-[1.02]' 
+                        : 'bg-manaco-cream text-manaco-forest border-manaco-forest/15 hover:border-manaco-forest/40'
+                    }">
+                        <span class="text-[10px] font-bold uppercase tracking-wider block ${isActive ? 'text-manaco-gold' : 'text-manaco-green'}">Depto.</span>
+                        <span class="font-display font-bold text-sm sm:text-base block mt-0.5">${dept}</span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        function selectDepartment(dept) {
+            selectedDept = dept;
+            renderDeptButtons();
+            const info = departmentsData[dept];
+            const card = document.getElementById('dept-detail-card');
+
+            card.innerHTML = `
+                <div class="flex items-center justify-between border-b border-manaco-forest/15 pb-4 mb-5">
+                    <div>
+                        <span class="text-xs font-bold text-manaco-green uppercase tracking-widest">Nodo Regional Activo</span>
+                        <h3 class="font-display font-black text-2xl sm:text-3xl text-manaco-forest mt-0.5">${dept}</h3>
+                    </div>
+                    <div class="w-12 h-12 rounded-2xl bg-manaco-forest text-white flex items-center justify-center">
+                        <i data-lucide="map-pinned" class="w-6 h-6 text-manaco-gold"></i>
+                    </div>
+                </div>
+
+                <p class="text-sm font-bold text-manaco-emerald mb-4">${info.role}</p>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-5">
+                    <div class="bg-white p-4 rounded-xl border border-manaco-forest/10">
+                        <span class="text-xs text-slate-500 block">Infraestructura Comercial</span>
+                        <strong class="text-sm text-manaco-forest mt-1 block">${info.stores}</strong>
+                    </div>
+                    <div class="bg-white p-4 rounded-xl border border-manaco-forest/10">
+                        <span class="text-xs text-slate-500 block">Red de Producción</span>
+                        <strong class="text-sm text-manaco-forest mt-1 block">${info.creators}</strong>
+                    </div>
+                </div>
+
+                <div class="space-y-2 text-sm text-slate-700">
+                    <p><strong class="text-manaco-forest">Líneas de Mayor Demanda:</strong> ${info.focus}</p>
+                    <p><strong class="text-manaco-forest">Impacto de la Plataforma:</strong> ${info.highlight}</p>
+                </div>
+            `;
+            lucide.createIcons();
+        }
+
+        // ==========================================
+        // 6. SIMULADOR COTIZADOR B2B / LICITACIONES
+        // ==========================================
+        function calculateB2BEstimate() {
+            const select = document.getElementById('b2b-model');
+            const unitPrice = parseFloat(select.value);
+            const qty = Math.max(1, parseInt(document.getElementById('b2b-qty').value) || 0);
+
+            let discountRate = 0;
+            let label = "Precio base (< 50 pares)";
+
+            if (qty >= 500) {
+                discountRate = 0.15;
+                label = "15% Licitación Mayorista (500+ pares)";
+            } else if (qty >= 100) {
+                discountRate = 0.08;
+                label = "8% Volumen Corporativo (100+ pares)";
+            } else if (qty >= 50) {
+                discountRate = 0.04;
+                label = "4% Dotación Media (50+ pares)";
+            }
+
+            const total = Math.round(unitPrice * qty * (1 - discountRate));
+            document.getElementById('b2b-discount-label').textContent = label;
+            document.getElementById('b2b-total-display').textContent = `Bs ${total.toLocaleString('es-BO')}`;
+        }
+
+        function handleB2BQuote(event) {
+            event.preventDefault();
+            const company = document.getElementById('b2b-company').value;
+            const dept = document.getElementById('b2b-dept').value;
+            const qty = document.getElementById('b2b-qty').value;
+            const select = document.getElementById('b2b-model');
+            const modelName = select.options[select.selectedIndex].dataset.name;
+
+            showToast(
+                "Proforma Institucional Generada",
+                `Hemos registrado la solicitud de ${company} (${dept}) por ${qty} pares de "${modelName}". Un ejecutivo B2B enviará la ficha técnica IBNORCA y proforma SICOES.`
+            );
+            event.target.reset();
+            document.getElementById('b2b-qty').value = 100;
+            calculateB2BEstimate();
+        }
+
+        // ==========================================
+        // 7. CARRITO Y PROFORMA INTERACTIVA
+        // ==========================================
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            const existing = cart.find(item => item.id === productId);
+
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...product, qty: 1 });
+            }
+
+            updateCartUI();
+            showToast("Producto Agregado", `"${product.name}" (${product.creator}) se añadió a tu lista de pedido/proforma.`);
+        }
+
+        function changeCartQty(productId, delta) {
+            const index = cart.findIndex(item => item.id === productId);
+            if (index === -1) return;
+
+            cart[index].qty += delta;
+            if (cart[index].qty <= 0) {
+                cart.splice(index, 1);
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+            const subtotal = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+
+            document.getElementById('cart-badge').textContent = totalItems;
+            document.getElementById('cart-subtotal').textContent = `Bs ${subtotal.toLocaleString('es-BO')}`;
+
+            const container = document.getElementById('cart-items-container');
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-12">
+                        <i data-lucide="shopping-bag" class="w-12 h-12 text-slate-300 mx-auto mb-3"></i>
+                        <p class="text-sm font-semibold text-slate-500">Tu pedido o proforma está vacío</p>
+                        <p class="text-xs text-slate-400 mt-1">Explora el catálogo de creadores o líneas industriales para sumar pares.</p>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between gap-3 bg-manaco-cream p-3.5 rounded-2xl border border-manaco-forest/15">
+                        <div class="flex-1 min-w-0">
+                            <span class="text-[10px] font-bold text-manaco-green uppercase block">${item.creator} • ${item.department}</span>
+                            <h4 class="font-bold text-sm text-manaco-forest truncate">${item.name}</h4>
+                            <span class="text-xs font-semibold text-slate-600">Bs ${item.price} c/u</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeCartQty(${item.id}, -1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 font-bold text-manaco-forest hover:bg-slate-100 cursor-pointer">-</button>
+                            <span class="text-sm font-bold w-6 text-center text-manaco-forest">${item.qty}</span>
+                            <button onclick="changeCartQty(${item.id}, 1)" class="w-7 h-7 rounded-lg bg-white border border-slate-300 font-bold text-manaco-forest hover:bg-slate-100 cursor-pointer">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            lucide.createIcons();
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            drawer.classList.toggle('hidden');
+        }
+
+        function checkoutOrder(type) {
+            if (cart.length === 0) {
+                showToast("Lista vacía", "Agrega al menos un modelo del catálogo antes de generar tu pedido o proforma.");
+                return;
+            }
+            const total = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+            const msg = type === 'directo'
+                ? `Tu pedido por Bs ${total.toLocaleString('es-BO')} fue enviado a nuestra central logística para despacho interdepartamental.`
+                : `Se ha generado tu proforma comercial por Bs ${total.toLocaleString('es-BO')} con respaldo de producción boliviana.`;
+
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer();
+            showToast(type === 'directo' ? "Pedido Confirmado" : "Proforma Solicitada", msg);
+        }
+
+        // ==========================================
+        // 8. FORMULARIO POSTULACIÓN DE CREADORES
+        // ==========================================
+        function handleCreatorSubmit(event) {
+            event.preventDefault();
+            const brand = document.getElementById('creator-brand').value;
+            const city = document.getElementById('creator-city').value;
+            const modality = document.getElementById('creator-modality').value;
+
+            showToast(
+                "¡Postulación Recibida!",
+                `Gracias "${brand}" (${city}). Nuestro comité de curaduría evaluará tu propuesta bajo la modalidad "${modality}" y te contactará en 48 horas.`
+            );
+            event.target.reset();
+        }
+
+        // ==========================================
+        // 9. UTILIDADES UI (MENÚ MÓVIL Y TOAST)
+        // ==========================================
+        function toggleMobileMenu() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        }
+
+        let toastTimeout;
+        function showToast(title, message) {
+            const toast = document.getElementById('toast-notification');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = message;
+            toast.classList.remove('hidden');
+
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('hidden');
+            }, 6000);
+        }
+
+        function hideToast() {
+            document.getElementById('toast-notification').classList.add('hidden');
+        }
+
+        // Inicialización al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            renderCatalog(products);
+            renderDeptButtons();
+            selectDepartment('Cochabamba');
+            calculateB2BEstimate();
+            updateCartUI();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
